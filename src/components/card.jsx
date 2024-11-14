@@ -1,31 +1,17 @@
-//import React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import origenDelVino from "../assets/imagenes/Origen-del-vino.jpg";
 
 export default function ImgMediaCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt=""
-        height="140"
-        image=""
-      />
+      <CardMedia component="img" height="140" src={origenDelVino} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          
-        </Typography>
+        <Typography gutterBottom variant="h5">Titulo</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Sub Titulo</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small"></Button>
-        <Button size="small"></Button>
+        <Button size="small">Ver</Button>
+        <Button size="small">Info</Button>
       </CardActions>
     </Card>
   );

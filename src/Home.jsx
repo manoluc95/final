@@ -1,71 +1,47 @@
-
-
-
-//import React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Card from './components/card'
+import { Box, Typography, Container } from '@mui/material';
+import ImgMediaCard from './components/card'
 import presentationImage from './assets/imagenes/bg-presentation.jpg';
 
 function home() {
     return (
         <>
-
-        
-            <Box
-                minHeight="75vh"
-                width="100%"
+          <Box
+            minHeight="100vh"
+            width="100%"
+            sx={{
+              backgroundImage: `url(${presentationImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "top",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            <Container sx={{ textAlign: "center", backgroundColor: "rgba(0, 0, 0, 0.5)", py: 4, borderRadius: 2 }}>
+              <Typography
+                variant="h1"
+                color="white"
                 sx={{
-                    backgroundImage: `url(${presentationImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "top",
-                    display: "grid",
-                    placeItems: "center",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+                  fontSize: { xs: "2.5rem", md: "4rem" },
                 }}
-            >
-                <Container>
-                    <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
-                        <Typography
-                            variant="h1"
-                            color="black"
-                            mt={-6}
-                            mb={1}
-                            sx={({ breakpoints, typography: { size } }) => ({
-                                [breakpoints.down("md")]: {
-                                    fontSize: size["3xl"],
-                                },
-                            })}
-                        >
-                            ¿Que quieres aprender hoy?
-                        </Typography>
-                        <Typography
-                            variant="h3"
-                            color="black"
-                            textAlign="center"
-                            px={{ xl: 10, lg: 20 }}
-                            mt={1}
-                        >
-                            Bienvenido a tu plataforma de aprendizaje .
-                        </Typography>
-                    </Grid>
-
-                </Container>
-            </Box>
-            <Card
+              >
+                ¿Qué quieres aprender hoy?
+              </Typography>
+              <Typography
+                variant="h3"
+                color="white"
                 sx={{
-                    p: 2,
-                    mx: { xs: 2, lg: 3 },
-                    mt: -8,
-                    mb: 4,
-                    backgroundColor: ({ palette: { white }, functions: { rgba } }) => rgba(white.main, 0.8),
-                    backdropFilter: "saturate(200%) blur(30px)",
-                    boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                  textShadow: "1px 1px 3px rgba(0, 0, 0, 0.7)",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                  mt: 2,
                 }}
-            />
+              >
+                Bienvenido a tu plataforma de aprendizaje.
+              </Typography>
+            </Container>
+          </Box>
+
+
         </>
     )
 }

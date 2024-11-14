@@ -1,85 +1,69 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import logoImage from '../assets/imagenes/Untitled design.png';
-
-
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Box, Typography, IconButton, InputBase, MenuItem, Menu } from '@mui/material';
 import { Search as SearchIcon, AccountCircle } from '@mui/icons-material';
-//import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink, useLocation } from 'react-router-dom';
+import logoImage from '../assets/imagenes/Untitled design.png';
+import Button from '@mui/material/Button';
 
 function Navbar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const location = useLocation();
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleMenu = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar position="static" color="default">
       <Toolbar>
-        {/* Logo */}
-        <Box sx={{ display: 'flex', alignItems: 'center', mr: 8, }}>
-  <img
-    src={logoImage}
-    alt="Logo"
-    style={{ height:50 }}
-    
-  />
-</Box>
-
-
-        {/* Search */}
-        <Box sx={{ display: 'flex', alignItems: 'center', mx: 8, flexGrow: 5, border: '2px solid #000',   }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mr: 8 }}>
+          <NavLink to="/">
+            <img src={logoImage} alt="Logo" style={{ height: 80 }} />
+          </NavLink>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', mx: 8, flexGrow: 5, border: '2px solid #000' }}>
           <SearchIcon />
-          <InputBase
-            placeholder="Buscar…"
-            inputProps={{ 'aria-label': 'search' }}
-            sx={{ ml: 1, flex: 1 , }}
-            
-          />
-        </Box> 
-
-        {/* Categories with Dropdown */}
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography
-            onClick={handleMenu}
-            sx={{ cursor: 'pointer', mr: 2 }}
-            aria-controls="category-menu"
-            aria-haspopup="true"
-          >
-            Categorías
-          </Typography>
-          <Menu
-            id="category-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose}>Tipos de Vino</MenuItem>
-            <MenuItem onClick={handleClose}>Elaboración</MenuItem>
-            <MenuItem onClick={handleClose}>Aprender de Vinos</MenuItem>
-            <MenuItem onClick={handleClose}>Enoturismo</MenuItem>
-            <MenuItem onClick={handleClose}>Curiosidades</MenuItem>
-            <MenuItem onClick={handleClose}>Vinos para Regalar</MenuItem>
-          </Menu>
+          <InputBase placeholder="Buscar…" inputProps={{ 'aria-label': 'search' }} sx={{ ml: 1, flex: 1 }} />
         </Box>
 
-        {/* Login Icon */}
-        <IconButton color="inherit">
-          <AccountCircle />
-          <link rel="stylesheet" href="/uvapp/src/login.jsx" />
-        </IconButton>
+        <NavLink to="/contacto" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+
+            sx={{
+                backgroundColor: '#D2B48C', // Marrón claro
+                borderRadius: '50px', // Ovalado
+                fontWeight: location.pathname === '/contacto' ? 'bold' : 'normal',
+            }}
+          >
+            Contacto
+          </Button>
+        </NavLink>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography onClick={handleMenu} sx={{ cursor: 'pointer', mr: 2 }} aria-controls="category-menu" aria-haspopup="true">
+            Categorías
+          </Typography>
+          <Menu id="category-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+            {[
+              { name: 'Tipos de Vino', path: '/TiposDeVinos' },
+              { name: 'Elaboración', path: '/elaboracion' },
+              { name: 'Aprender de Vinos', path: '/aprende-sobre-vino' },
+              { name: 'Enoturismo', path: '/enoturismo' },
+              { name: 'Curiosidades', path: '/curiosidades' },
+              { name: 'Vinos para Regalar', path: '/vinos-para-regalar' }
+            ].map((category) => (
+              <MenuItem key={category.name} onClick={handleClose}>
+                <NavLink to={category.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  {category.name}
+                </NavLink>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+        <NavLink to="/Login">
+          <IconButton color="inherit">
+            <AccountCircle />
+          </IconButton>
+        </NavLink>
       </Toolbar>
     </AppBar>
   );

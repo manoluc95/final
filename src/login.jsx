@@ -1,66 +1,54 @@
 import { useState } from "react";
-
-// react-router-dom components
 import { Link } from "react-router-dom";
-
-// @mui material components
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
-
-// @mui icons
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Input from "@mui/material/Input";
+import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-
-
-
-
-
-function SignInBasic() {
+function Login() {
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
     <>
-      
       <Box
-        position="absolute"
+        position="fixed"
         top={0}
         left={0}
         zIndex={1}
         width="100%"
         minHeight="100vh"
         sx={{
-          
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          backgroundColor: "#D2B48C", // Marrón claro
         }}
       />
-      <Box px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2}>
+      <Box px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2} pt={10}>
         <Grid container spacing={1} justifyContent="center" alignItems="center" height="100%">
           <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
             <Card>
               <Box
                 variant="gradient"
-                bgColor="info"
+                bgcolor="#8B4513"
                 borderRadius="lg"
-                coloredShadow="info"
+                boxShadow={3}
                 mx={2}
                 mt={-3}
                 p={2}
                 mb={1}
                 textAlign="center"
+
               >
-                
                 <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
                   Sign in
                 </Typography>
@@ -70,11 +58,7 @@ function SignInBasic() {
                       <FacebookIcon color="inherit" />
                     </Typography>
                   </Grid>
-                  <Grid item xs={2}>
-                    <Typography component={MuiLink} href="#" variant="body1" color="white">
-                      <GitHubIcon color="inherit" />
-                    </Typography>
-                  </Grid>
+
                   <Grid item xs={2}>
                     <Typography component={MuiLink} href="#" variant="body1" color="white">
                       <GoogleIcon color="inherit" />
@@ -85,10 +69,10 @@ function SignInBasic() {
               <Box pt={4} pb={3} px={3}>
                 <Box component="form" role="form">
                   <Box mb={2}>
-                    <Input type="email" label="Email" fullWidth />
+                    <TextField type="email" label="Email" fullWidth />
                   </Box>
                   <Box mb={2}>
-                    <Input type="password" label="Password" fullWidth />
+                    <TextField type="password" label="Password" fullWidth />
                   </Box>
                   <Box display="flex" alignItems="center" ml={-1}>
                     <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -103,8 +87,12 @@ function SignInBasic() {
                     </Typography>
                   </Box>
                   <Box mt={4} mb={1}>
-                    <Button variant="gradient" color="info" fullWidth>
-                      sign in
+                    <Button
+                      variant="contained"
+                      fullWidth
+                      sx={{ backgroundColor: "#8B4513", color: "white" }}
+                    >
+                      INICIO DE SESION
                     </Button>
                   </Box>
                   <Box mt={3} mb={1} textAlign="center">
@@ -116,7 +104,6 @@ function SignInBasic() {
                         variant="button"
                         color="info"
                         fontWeight="medium"
-                        textGradient
                       >
                         Sign up
                       </Typography>
@@ -128,9 +115,8 @@ function SignInBasic() {
           </Grid>
         </Grid>
       </Box>
-      
     </>
   );
 }
 
-export default SignInBasic;
+export default Login;

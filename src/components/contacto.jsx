@@ -1,17 +1,5 @@
 import { useState } from "react";
-
-// @mui material components
-import Container from "@mui/material/Container";
-import Grid2 from "@mui/material/Grid";
-import Switch from "@mui/material/Switch";
-//import Box from '@mui/material/Box';
-
-
-
-import Box from "@mui/material/Box";
-import Input from "@mui/material/Input";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import {Container, Switch, Box, Button, Typography, TextField} from "@mui/material";
 
 function Contacto() {
   const [checked, setChecked] = useState(true);
@@ -21,28 +9,28 @@ function Contacto() {
   return (
     <Box component="section" py={12}>
       <Container>
-        <Grid2 container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
+        <Box display="flex" justifyContent="center" mx="auto" textAlign="center" width={{ xs: '100%', lg: '58.33%' }}>
           <Typography variant="h3" mb={1}>
             Contactanos
           </Typography>
-        </Grid2>
-        <Grid2 container item xs={12} lg={7} sx={{ mx: "auto" }}>
+        </Box>
+        <Box display="flex" justifyContent="center" mx="auto" width={{ xs: '100%', lg: '58.33%' }}>
           <Box width="100%" component="form" method="post" autoComplete="off">
             <Box p={3}>
-              <Grid2 container spacing={3}>
-                <Grid2 item xs={12} md={6}>
-                  <Input variant="standard" label="Nombre" fullWidth />
-                </Grid2>
-                <Grid2 item xs={12} md={6}>
-                  <Input variant="standard" label="Apellido" fullWidth />
-                </Grid2>
-                <Grid2 item xs={12}>
-                  <Input variant="standard" type="email" label="Email " fullWidth />
-                </Grid2>
-                <Grid2 item xs={12}>
-                  <Input variant="standard" label="su mensaje" multiline fullWidth rows={6} />
-                </Grid2>
-                <Grid2 item xs={12} alignItems="center" ml={-1}>
+              <Box display="flex" flexWrap="wrap" gap={3}>
+                <Box flexBasis={{ xs: '100%', md: '48%' }}>
+                  <TextField variant="standard" label="Nombre" fullWidth />
+                </Box>
+                <Box flexBasis={{ xs: '100%', md: '48%' }}>
+                  <TextField variant="standard" label="Apellido" fullWidth />
+                </Box>
+                <Box flexBasis="100%">
+                  <TextField variant="standard" type="email" label="Email" fullWidth />
+                </Box>
+                <Box flexBasis="100%">
+                  <TextField variant="standard" label="Su mensaje" multiline fullWidth rows={6} />
+                </Box>
+                <Box display="flex" alignItems="center" ml={-1} flexBasis="100%">
                   <Switch checked={checked} onChange={handleChecked} />
                   <Typography
                     variant="button"
@@ -63,16 +51,16 @@ function Contacto() {
                   >
                     terminos y condiciones
                   </Typography>
-                </Grid2>
-              </Grid2>
-              <Grid2 container item justifyContent="center" xs={12} my={2}>
-                <Button type="submit" variant="gradient" color="dark" fullWidth>
-                   Enviar mensaje
+                </Box>
+              </Box>
+              <Box display="flex" justifyContent="center" my={2}>
+                <Button type="submit" variant="contained" color="primary" fullWidth sx={{ backgroundColor: 'D29719FF', color: 'C45A20FF', '&:hover': { backgroundColor: 'D29719FF'  } }}>
+                  Enviar mensaje
                 </Button>
-              </Grid2>
+              </Box>
             </Box>
           </Box>
-        </Grid2>
+        </Box>
       </Container>
     </Box>
   );
