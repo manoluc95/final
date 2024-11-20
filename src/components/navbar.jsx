@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Box, Typography, IconButton, InputBase, MenuItem, Menu } from '@mui/material';
-import { Search as SearchIcon, AccountCircle } from '@mui/icons-material';
+import { AppBar, Toolbar, Box, IconButton,  } from '@mui/material';
+import {  AccountCircle } from '@mui/icons-material';
 import { NavLink, useLocation } from 'react-router-dom';
 import logoImage from '../assets/imagenes/Untitled design.png';
 import Button from '@mui/material/Button';
+import TiposDeVinos from './TiposDeVinos';
+import AprenderDeVinoS from "./pages/AprenderDeVinos.jsx";
 
 function Navbar() {
-  const [anchorEl, setAnchorEl] = useState(null);
   const location = useLocation();
 
-  const handleMenu = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
+
 
   return (
     <AppBar position="static" color="default">
@@ -20,10 +20,96 @@ function Navbar() {
             <img src={logoImage} alt="Logo" style={{ height: 80 }} />
           </NavLink>
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', mx: 8, flexGrow: 5, border: '2px solid #000' }}>
-          <SearchIcon />
-          <InputBase placeholder="Buscar…" inputProps={{ 'aria-label': 'search' }} sx={{ ml: 1, flex: 1 }} />
-        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+        <NavLink to="/TiposDeVinos" style={{ textDecoration: "none" }}>
+          <Button
+            variant="contained"
+
+            sx={{
+              backgroundColor: '#D2B48C', // Marrón claro
+              borderRadius: '50px', // Ovalado
+              fontWeight: location.pathname === '/TiposDeVinos' ? 'bold' : 'normal',
+              mr: 5,
+
+            }}
+          >
+            Tipos de Vinos
+          </Button>
+        </NavLink>
+        <NavLink to="/elaboracion" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+
+            sx={{
+              backgroundColor: '#D2B48C', // Marrón claro
+              borderRadius: '50px', // Ovalado
+              fontWeight: location.pathname === '/contacto' ? 'bold' : 'normal',
+              mr: 5,
+            }}
+          >
+            Elaboracion de Vinos
+          </Button>
+        </NavLink>
+        <NavLink to="/AprenderDeVinos" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+
+            sx={{
+              backgroundColor: '#D2B48C', // Marrón claro
+              borderRadius: '50px', // Ovalado
+              fontWeight: location.pathname === '/AprenderDeVinos' ? 'bold' : 'normal',
+              mr: 5,
+
+            }}
+          >
+            Aprender de Vinos
+          </Button>
+        </NavLink>
+        <NavLink to="/bodegas" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+
+            sx={{
+              backgroundColor: '#D2B48C', // Marrón claro
+              borderRadius: '50px', // Ovalado
+              fontWeight: location.pathname === '/bodegas' ? 'bold' : 'normal',
+              mr: 5,
+
+            }}
+          >
+            Bodegas
+          </Button>
+        </NavLink>
+          <NavLink to="/bodegas" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="contained"
+
+              sx={{
+                backgroundColor: '#D2B48C', // Marrón claro
+                borderRadius: '50px', // Ovalado
+                fontWeight: location.pathname === '/bodegas' ? 'bold' : 'normal',
+                mr: 5,
+
+              }}
+            >
+              Curiosidades
+            </Button>
+          </NavLink>
+          <NavLink to="/bodegas" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="contained"
+
+              sx={{
+                backgroundColor: '#D2B48C', // Marrón claro
+                borderRadius: '50px', // Ovalado
+                fontWeight: location.pathname === '/bodegas' ? 'bold' : 'normal',
+                mr: 5,
+
+              }}
+            >
+            Vinos para regalar
+            </Button>
+          </NavLink>
 
         <NavLink to="/contacto" style={{ textDecoration: 'none' }}>
           <Button
@@ -32,35 +118,15 @@ function Navbar() {
             sx={{
                 backgroundColor: '#D2B48C', // Marrón claro
                 borderRadius: '50px', // Ovalado
-                fontWeight: location.pathname === '/contacto' ? 'bold' : 'normal',
+                fontWeight: location.pathname === '/contacto' ? 'bold' : 'normal',mr: 5,
             }}
           >
             Contacto
           </Button>
         </NavLink>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography onClick={handleMenu} sx={{ cursor: 'pointer', mr: 2 }} aria-controls="category-menu" aria-haspopup="true">
-            Categorías
-          </Typography>
-          <Menu id="category-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-            {[
-              { name: 'Tipos de Vino', path: '/TiposDeVinos' },
-              { name: 'Elaboración', path: '/elaboracion' },
-              { name: 'Aprender de Vinos', path: '/aprende-sobre-vino' },
-              { name: 'Enoturismo', path: '/enoturismo' },
-              { name: 'Curiosidades', path: '/curiosidades' },
-              { name: 'Vinos para Regalar', path: '/vinos-para-regalar' }
-            ].map((category) => (
-              <MenuItem key={category.name} onClick={handleClose}>
-                <NavLink to={category.path} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  {category.name}
-                </NavLink>
-              </MenuItem>
-            ))}
-          </Menu>
         </Box>
         <NavLink to="/Login">
-          <IconButton color="inherit">
+          <IconButton color="#D2B48C">
             <AccountCircle />
           </IconButton>
         </NavLink>

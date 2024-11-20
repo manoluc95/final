@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import bgImage from "../../assets/imagenes/bgImage.png";
 
-function AprenderSobreVino() {
+function AprenderDeVinoS() {
   return (
     <Box
       sx={{
@@ -40,4 +40,4 @@ function AprenderSobreVino() {
   );
 }
 
-export default AprenderSobreVino;
+export default AprenderDeVinoS;

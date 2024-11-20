@@ -5,7 +5,6 @@ import Switch from "@mui/material/Switch";
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -27,10 +26,11 @@ function Login() {
         width="100%"
         minHeight="100vh"
         sx={{
+          backgroundImage: "url('/assets/images/bg-presentation.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundColor: "#D2B48C", // Marrón claro
+
         }}
       />
       <Box px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2} pt={10}>
@@ -47,7 +47,6 @@ function Login() {
                 p={2}
                 mb={1}
                 textAlign="center"
-
               >
                 <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
                   Sign in
@@ -58,7 +57,6 @@ function Login() {
                       <FacebookIcon color="inherit" />
                     </Typography>
                   </Grid>
-
                   <Grid item xs={2}>
                     <Typography component={MuiLink} href="#" variant="body1" color="white">
                       <GoogleIcon color="inherit" />
