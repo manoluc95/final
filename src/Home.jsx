@@ -2,46 +2,54 @@ import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
 import ImgMediaCard from './components/ImgMediaCard';
 import presentationImage from './assets/imagenes/bg-presentation.jpg';
+import tiposImage from './assets/imagenes/tipos de vinos/tipos.jpeg';
+import elaboracionImage from './assets/imagenes/elaboracion/elaboracion1.jpeg';
+import aprenderImage from './assets/imagenes/aprender/aprender1.jpeg';
+import bodegasImage from './assets/imagenes/bodegas/portada.jpeg';
+import regalarImage from './assets/imagenes/regalar/portada.jpeg';
+import enoturismoImage from './assets/imagenes/enoturismo/portada.jpeg';
+
 
 
 function Home() {
   const cards = [
     {
-      image: '/assets/images/Untitled design.png',
+      image: tiposImage,
       title: 'Tipos de vinos',
-      description: 'Description for card 1',
+      description: "",
       link: '/TiposDeVinos'
     },
     {
-      image: '',
+      image: elaboracionImage,
       title: 'Elaboración de vinos',
       description: '',
       link: '/elaboracion'
     },
     {
-      image: '',
+      image: aprenderImage,
       title: 'Aprender de vinos',
-      description: 'Description for card 3',
+      description: "",
       link: '/link3'
     },
     {
-      image: '',
+      image: bodegasImage,
       title: 'Bodegas',
       description: '',
       link: '/Bodegas'
     },
     {
-      image: '',
-      title: 'Curiosidades',
-      description: 'Description for card 1',
+      image: regalarImage,
+      title: 'Vinos para regalar',
+      description: '',
       link: '/tipos-de-vinos'
     },
     {
-      image: '/assets/images/Untitled design.png',
-      title: 'Tipos de vinos',
-      description: 'Description for card 1',
-      link: '/tipos-de-vinos'
+      image: enoturismoImage ,
+      title: 'Enoturismo',
+      description: '',
+      link: ''
     },
+   
   ];
 
   return (

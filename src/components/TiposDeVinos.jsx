@@ -2,33 +2,36 @@ import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
 import ImgMediaCard from "./ImgMediaCard.jsx";
 
+import descargaImage from '../assets/imagenes/tipos de vinos/tintos/descarga.jpeg';
+import blancoImage from '../assets/imagenes/tipos de vinos/blancos/blanco.jpeg';
+import roseImage from '../assets/imagenes/tipos de vinos/rose/rose.jpeg';
+
 function TiposDeVinos() {
   const cards = [
     {
-      image: '',
+      image: descargaImage,
       title: 'TINTO',
       description: 'De color rojo, el cual puede ser pálido o rubí, o púrpura. Se produce con uvas rojas o azulosas.',
-      link: '/tipos-de-vinos'
+      link: "/tintos"
     },
     {
-      image: '',
+      image: blancoImage,
       title: 'BLANCO',
-      description: 'con una tonalidad amarilla, dorada, pálida o verdosa. Se hace con uvas blancas o con el jugo (no la cáscara) de las rojas.',
-      link: '/link2'
+      description: 'Con una tonalidad amarilla, dorada, pálida o verdosa. Se hace con uvas blancas o con el jugo (no la cáscara) de las rojas.',
+      link: "/blancos"
     },
     {
-      image: '',
+      image: roseImage,
       title: 'ROSE',
-      description: 'tiene un color entre el rosa claro y el fuerte cercano al violeta, se elabora con uvas tintas, pero se les quita la piel .',
-      link: '/link2'
+      description: 'Tiene un color entre el rosa claro y el fuerte cercano al violeta, se elabora con uvas tintas, pero se les quita la piel.',
+      link: '/rose'
     },
-
   ];
 
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', mr: 8 }}>
-        <Typography variant="h2" mb={1}>
+      <Box sx={{  alignItems: 'center', mr: 8 }}>
+        <Typography variant="h1" align="center" gutterBottom >
           Tipos de Vinos
         </Typography>
       </Box>
